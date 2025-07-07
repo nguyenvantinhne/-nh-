@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đăng nhập hệ thống</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+    body, html {
+      height: 100%;
+    }
+    body {
+      background: url('anh-nen.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-box {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+      color: #fff;
+    }
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+    }
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #00c9ff;
+      background: linear-gradient(to right, #92fe9d, #00c9ff);
+      border-radius: 8px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .login-box button:hover {
+      opacity: 0.8;
+    }
+    .login-box .footer {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Đăng nhập</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Tên đăng nhập" required />
+      <input type="password" id="password" placeholder="Mật khẩu" required />
+      <button type="submit">Đăng nhập</button>
+    </form>
+    <div class="footer">
+      © 2025 MrTínhiOS - Tool Game Tài Xỉu
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      // Ví dụ xác thực đơn giản
+      if (user === "admin" && pass === "123456") {
+        Swal.fire("Thành công", "Đăng nhập thành công!", "success").then(() => {
+          window.location.href = "dashboard.html"; // Chuyển hướng sau khi đăng nhập
+        });
+      } else {
+        Swal.fire("Lỗi", "Sai tài khoản hoặc mật khẩu!", "error");
+      }
+    });
+  </script>
+
+</body>
+    </html>
